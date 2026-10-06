@@ -1,0 +1,133 @@
+TASK 1 - Unification Queries
+--------------------------------------
+
+
+Query 1:
+?- house = house.
+
+Result:
+true.
+
+Explanation:
+Both terms are identical, so they can be unified successfully.
+
+
+----------------------------------------
+
+Query 2:
+?- house = abc.
+
+Result:
+false.
+
+Explanation:
+Both terms are constants, but they have different values, so they cannot be unified.
+
+
+----------------------------------------
+
+Query 3:
+?- edge(a,b) = edge(C,b).
+
+Result:
+C = a.
+
+Explanation:
+Both terms have the same predicate name and the same number of arguments.
+The second argument is already the same (b), so C is unified with a.
+
+
+----------------------------------------
+
+Query 4:
+?- edge(a,d) = edge(C,B).
+
+Result:
+C = a,
+B = d.
+
+Explanation:
+Both terms have the same predicate name and the same number of arguments.
+C is unified with a, and B is unified with d.
+
+
+----------------------------------------
+
+Query 5:
+?- edge(C,B) = edge(a,d).
+
+Result:
+C = a,
+B = d.
+
+Explanation:
+Both terms have the same predicate name and the same number of arguments.
+C is unified with a, and B is unified with d.
+
+
+----------------------------------------
+
+Query 6:
+?- edge(A,f(g,h)) = edge(a,B).
+
+Result:
+A = a,
+B = f(g,h).
+
+Explanation:
+Both terms have the same predicate name and the same number of arguments.
+A is unified with a, and B is unified with the structure f(g,h).
+
+
+----------------------------------------
+
+Query 7:
+?- edge(A,A) = edge(b,c).
+
+Result:
+false.
+
+Explanation:
+The same variable A appears in both positions, so both arguments must have the same value.
+However, b and c are different constants, so the terms cannot be unified.
+
+
+----------------------------------------
+
+Query 8:
+?- edge(A,A) = edge(b,b).
+
+Result:
+A = b.
+
+Explanation:
+The same variable A appears in both positions, and both arguments are b.
+Therefore, A can be unified with b.
+
+
+----------------------------------------
+
+Query 9:
+?- A = B, B = f.
+
+Result:
+A = f,
+B = f.
+
+Explanation:
+A and B are first unified together. Then B is unified with f.
+Therefore, both A and B become f.
+
+
+----------------------------------------
+
+Query 10:
+?- A = B, B = f, A = e.
+
+Result:
+false.
+
+Explanation:
+A and B are first unified together, and B is then unified with f.
+Therefore, A must also be f. The final condition A = e conflicts with this,
+because f and e are different constants.
